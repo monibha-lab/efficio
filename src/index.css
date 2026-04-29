@@ -23,7 +23,7 @@
   }
 
   .btn-primary {
-    @apply bg-sage-600 text-white rounded-xl px-5 py-2.5 font-heading font-600
+    @apply bg-sage-600 text-white rounded-xl px-5 py-2.5 font-heading font-semibold
            hover:bg-sage-800 active:scale-95 transition-all duration-150
            shadow-sage text-sm font-semibold;
   }
