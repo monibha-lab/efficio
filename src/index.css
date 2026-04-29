@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-cream-100 font-body text-gray-800 antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Nunito', sans-serif;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl shadow-card border border-cream-200 p-5;
+  }
+
+  .btn-primary {
+    @apply bg-sage-600 text-white rounded-xl px-5 py-2.5 font-heading font-600
+           hover:bg-sage-800 active:scale-95 transition-all duration-150
+           shadow-sage text-sm font-semibold;
+  }
+
+  .btn-secondary {
+    @apply bg-cream-200 text-gray-700 rounded-xl px-5 py-2.5 font-heading
+           hover:bg-cream-300 active:scale-95 transition-all duration-150 text-sm font-semibold;
+  }
+
+  .btn-ghost {
+    @apply text-gray-500 rounded-xl px-4 py-2 hover:bg-cream-200
+           active:scale-95 transition-all duration-150 text-sm;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-cream-300 bg-cream-50 px-4 py-3
+           text-sm text-gray-800 placeholder-gray-400
+           focus:outline-none focus:ring-2 focus:ring-sage-400 focus:border-transparent
+           transition-all duration-150;
+  }
+
+  .tag-pill {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .nav-item {
+    @apply flex flex-col items-center gap-1 px-3 py-2 rounded-xl
+           text-gray-400 transition-all duration-200 cursor-pointer;
+  }
+
+  .nav-item.active {
+    @apply text-sage-600 bg-sage-100;
+  }
+
+  .tab-btn {
+    @apply px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200
+           text-gray-500 hover:bg-cream-200;
+  }
+
+  .tab-btn.active {
+    @apply bg-white text-sage-800 shadow-card;
+  }
+}
+
+/* Pixel-art checkbox animation */
+@keyframes checkmark {
+  0% { stroke-dashoffset: 24; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.task-check-svg .checkmark {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+}
+
+.task-check-svg.checked .checkmark {
+  animation: checkmark 0.25s ease-out forwards;
+}
+
+/* Completion bounce */
+@keyframes completionPulse {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.04); }
+  70% { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+.task-complete-anim {
+  animation: completionPulse 0.35s ease-out;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #E8EDE6; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #C8D9C3; }
+
+/* Page transition */
+.page-enter {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
